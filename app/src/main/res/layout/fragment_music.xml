@@ -3,35 +3,144 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="#191a1f"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MusicFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/musicRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/music_title"
+            android:textSize="28sp"
+            android:text="으갸갸 생일축하노래"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/music_name"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:text="하영"
+            android:textColor="@color/gray"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageView
+            android:id="@+id/music_img"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/bottom_bar"
+        android:layout_alignParentBottom="true">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <SeekBar
+        <TextView
+            android:id="@+id/startTime"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:text="00:00"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            />
+
+        <SeekBar
+            android:id="@+id/playerSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="0"
+            android:max="100"
+            android:progressDrawable="@drawable/custom_seekbar"
+            android:thumb="@drawable/custom_thumb"
+            android:layout_toEndOf="@+id/startTime"
+            android:layout_toStartOf="@+id/endTime"
+            />
+
+
+        <TextView
+            android:id="@+id/endTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:text="00:00"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="50dp"
+        android:gravity="center">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="80dp"
-            android:layout_height="90dp"
-            android:background="#796045"
-            app:cardUseCompatPadding="true"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp"
-            android:outlineAmbientShadowColor="#7960E5"
-            android:outlineSpotShadowColor="#7960E5"
+        <ImageView
+            android:id="@+id/previousBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_prev_white"
+            android:padding="10dp"
+            android:background="@drawable/round_back"
+            android:layout_marginEnd="20dp"
+            />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/playPauseCard"
+                android:layout_width="110dp"
+                android:layout_height="120dp"
+                app:cardBackgroundColor="@color/black"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                android:outlineAmbientShadowColor="#7960E5"
+                android:outlineSpotShadowColor="#7960E5"
+                >
+                <ImageView
+                    android:id="@+id/playPauseImg"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_play_white"
+                    />
+            </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/nextBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_next_white"
+            android:padding="10dp"
+            android:background="@drawable/round_back"
+            android:layout_marginStart="20dp"
             />
 
-
-
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
